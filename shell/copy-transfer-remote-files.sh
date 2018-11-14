@@ -6,6 +6,7 @@ for i in "${array[@]}"; do
     # transfer to remote machine
     rsync -r file1 file2.java file3.csv file4.csv <ssh-username>@$i:/etc/abcd/xyz
     # copy from remote machine
-    rsync -r <ssh-username>@$i:/etc/abcd/xyz/* ~/Desktop/temp
+    
+    rsync -r -h -I --update <ssh-username>@$i:/etc/abcd/xyz/* ~/Desktop/temp
     echo $?
 done
